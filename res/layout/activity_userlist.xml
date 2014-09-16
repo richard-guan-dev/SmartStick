@@ -19,7 +19,7 @@
         android:layout_alignParentRight="true"
         android:layout_alignParentTop="true"
         android:layout_marginRight="5dp"
-        android:text="添加用户" />
+        android:text="@string/add_user" />
 
     <Button
         android:id="@+id/back"
@@ -28,7 +28,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
         android:layout_alignParentTop="true"
-        android:text="后退" />
+        android:text="@string/back" />
 
     <TextView
         android:id="@+id/textView1"
@@ -37,7 +37,7 @@
         android:layout_alignBaseline="@+id/adduser"
         android:layout_alignBottom="@+id/adduser"
         android:layout_centerHorizontal="true"
-        android:text="用户列表"
+        android:text="@string/user_list"
         android:textSize="24sp" />
 
 </RelativeLayout>

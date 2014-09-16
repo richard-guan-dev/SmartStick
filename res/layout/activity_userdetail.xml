@@ -20,7 +20,7 @@
         android:layout_below="@+id/userphonenumber"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="40dp"
-        android:text="保存" />
+        android:text="@string/save" />
 
     <EditText
         android:id="@+id/userphonenumber"
@@ -38,7 +38,7 @@
         android:layout_alignBottom="@+id/username"
         android:layout_alignParentLeft="true"
         android:layout_marginLeft="5dp"
-        android:text="姓名" />
+        android:text="@string/username" />
 
     <TextView
         android:id="@+id/battery"
@@ -47,7 +47,7 @@
         android:layout_alignBottom="@+id/userphonenumber"
         android:layout_alignParentLeft="true"
         android:layout_marginLeft="5dp"
-        android:text="电话" />
+        android:text="@string/user_phone" />
 
     <Button
         android:id="@+id/back"
@@ -56,6 +56,6 @@
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
         android:layout_alignParentTop="true"
-        android:text="后退" />
+        android:text="@string/back" />
 
 </RelativeLayout>

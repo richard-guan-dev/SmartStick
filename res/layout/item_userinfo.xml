@@ -21,7 +21,7 @@
         android:layout_marginLeft="20dp"
         android:layout_marginTop="0dp"
         android:layout_toRightOf="@+id/imageView1"
-        android:text="Name" />
+        android:text="@string/name" />
 
     <TextView
         android:id="@+id/user_phone"
@@ -30,7 +30,7 @@
         android:layout_alignLeft="@+id/user_name"
         android:layout_below="@+id/user_name"
         android:layout_marginTop = "10dp"
-        android:text="13800000000" />
+        android:text="@string/default_phone_number" />
 
     <Button
         android:id="@+id/delete"
@@ -40,7 +40,7 @@
         android:layout_alignBaseline="@+id/edit"
         android:layout_alignBottom="@+id/edit"
         android:layout_alignParentRight="true"
-        android:text="删除" />
+        android:text="@string/delete" />
 
     <Button
         android:id="@+id/edit"
@@ -49,6 +49,6 @@
         android:layout_height="wrap_content"
         android:layout_alignBottom="@+id/user_phone"
         android:layout_toLeftOf="@+id/delete"
-        android:text="未激活" />
+        android:text="@string/unactived" />
 
 </RelativeLayout>

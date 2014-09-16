@@ -96,8 +96,6 @@ public class UserListAdapter extends BaseAdapter {
 				Toast.makeText(mContext,
 						"Current Activie User is " + user.getUserName(),
 						Toast.LENGTH_LONG).show();
-				UserStore.getInstance().saveUser(user, mContext);
-				UserListAdapter.this.notifyDataSetChanged();
 
 				final UserModule currentUser = UserStore.getInstance()
 						.getCurrentUser(mContext);
@@ -109,6 +107,8 @@ public class UserListAdapter extends BaseAdapter {
 						try {
 							CommandSender.getInstance().UnBindUser(mContext,
 									currentUser.getUserPhoneNumber());
+							UserStore.getInstance().saveUser(user, mContext);
+							UserListAdapter.this.notifyDataSetChanged();
 							CommandSender.getInstance().BindUser(mContext,
 									user.getUserPhoneNumber());
 						} catch (Exception e) {
@@ -118,7 +118,7 @@ public class UserListAdapter extends BaseAdapter {
 
 				}.start();
 
-				UserStore.getInstance().saveUser(user, mContext);
+				// UserStore.getInstance().saveUser(user, mContext);
 
 				// Intent intent = new Intent();
 				// intent.setClass(UserListAdapter.this.mContext,

@@ -49,6 +49,7 @@ public class MainActivity extends Activity {
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
+
 		setContentView(R.layout.activity_main);
 
 		// this.mSMSBroadcastReceiver = new SMSBroadcastReceiver();
@@ -164,6 +165,21 @@ public class MainActivity extends Activity {
 															Constant.MESSAGE_GPS_LATITUDE,
 															0));
 
+											// Intent mapIntent = new Intent();
+											// mapIntent.setClass(MainActivity.this,
+											// MapActivity.class);
+											// mapIntent.putExtra(
+											// Constant.GPS_LATITULE,
+											// intent.getDoubleExtra(
+											// Constant.MESSAGE_GPS_LONGITUDE,
+											// 0));
+											// mapIntent.putExtra(
+											// Constant.GPS_LONTITULE,
+											// intent.getDoubleExtra(
+											// Constant.MESSAGE_GPS_LATITUDE,
+											// 0));
+											// startActivity(mapIntent);
+
 											Toast.makeText(
 													MainActivity.this,
 													"lon:" + longitude
@@ -175,25 +191,17 @@ public class MainActivity extends Activity {
 													.parse("map/marker?location="
 															+ latitude
 															+ ","
-															+ longitude + "&coord_type=wgs844&title=我的位置&content=用户位置&referer=USTB|SmartStick");
+															+ longitude
+															+ "&coord_type=wgs844&title=我的位置&content=用户位置&referer=USTB|SmartStick");
 											bdIntent.setData(uri);
 
-//											bdIntent = Intent
-//													.getIntent("intent://map/geocoder?location="
-//															+ latitude
-//															+ ","
-//															+ longitude
-//															+ "&coord_type=gcj02&src=SmartStick|SmartStick#Intent;scheme=bdapp;package=com.baidu.BaiduMap;end");
-											 bdIntent.setPackage("com.baidu.BaiduMap");
-//											bdIntent = Intent
-//													.getIntent("intent://map/direction?origin=latlng:34.264642646862,108.95108518068|name:我家&destination=大雁塔&mode=driving®ion=西安&referer=Autohome|GasStation#Intent;scheme=bdapp;package=com.baidu.BaiduMap;end");
 											bdIntent = Intent
-													.getIntent("intent://map/marker?location="
+													.getIntent("intent://map/geocoder?location="
 															+ longitude
 															+ ","
 															+ latitude
 															+ "&coord_type=wgs84&title=我的位置&content=用户位置&src=USTB|SmartStick#Intent;scheme=bdapp;package=com.baidu.BaiduMap;end");
-//											bdIntent = Intent.getIntent("intent://map/marker?location=39.916979519873,116.41004950566&title=我的位置&content=百度奎科大厦&referer=USTB|SmartStick#Intent;scheme=bdapp;package=com.baidu.BaiduMap;end");
+
 											Log.i("intent",
 													"intent://map/geocoder?location="
 															+ longitude

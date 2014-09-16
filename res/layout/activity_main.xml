@@ -15,7 +15,7 @@
         android:layout_alignLeft="@+id/userlistbutton"
         android:layout_below="@+id/userlistbutton"
         android:layout_marginTop="32dp"
-        android:text="精确定位" />
+        android:text="@string/locate_client" />
 
     <Button
         android:id="@+id/userlistbutton"
@@ -25,7 +25,7 @@
         android:layout_alignParentTop="true"
         android:layout_marginLeft="20dp"
         android:layout_marginTop="166dp"
-        android:text="用户列表" />
+        android:text="@string/user_list" />
 
     <Button
         android:id="@+id/check_status"
@@ -34,7 +34,7 @@
         android:layout_alignTop="@+id/userlistbutton"
         android:layout_marginLeft="32dp"
         android:layout_toRightOf="@+id/userlistbutton"
-        android:text="检查状态" />
+        android:text="@string/check_status" />
 
     <Button
         android:id="@+id/Null"
@@ -42,7 +42,7 @@
         android:layout_height="60dp"
         android:layout_alignLeft="@+id/check_status"
         android:layout_alignTop="@+id/locate_client"
-        android:text="预留" />
+        android:text="@string/reserved" />
 
     <TextView
         android:id="@+id/textView1"
@@ -51,7 +51,7 @@
         android:layout_alignLeft="@+id/userlistbutton"
         android:layout_alignParentTop="true"
         android:layout_marginTop="68dp"
-        android:text="电量" />
+        android:text="@string/battery" />
 
     <TextView
         android:id="@+id/textView3"
@@ -60,7 +60,7 @@
         android:layout_above="@+id/battery"
         android:layout_alignLeft="@+id/textView1"
         android:layout_marginBottom="19dp"
-        android:text="当前用户" />
+        android:text="@string/current_user" />
 
     <TextView
         android:id="@+id/battery"
@@ -70,7 +70,7 @@
         android:layout_alignBottom="@+id/textView1"
         android:layout_alignLeft="@+id/check_status"
         android:layout_marginLeft="19dp"
-        android:text="0%" />
+        android:text="@string/default_battery" />
 
     <TextView
         android:id="@+id/user_name_main"
@@ -79,7 +79,7 @@
         android:layout_alignBaseline="@+id/textView3"
         android:layout_alignBottom="@+id/textView3"
         android:layout_alignLeft="@+id/battery"
-        android:text="User" />
+        android:text="@string/user" />
 
     <TextView
         android:id="@+id/temperature"
@@ -87,7 +87,7 @@
         android:layout_height="wrap_content"
         android:layout_alignBottom="@+id/textview_temperature"
         android:layout_alignLeft="@+id/battery"
-        android:text="0" />
+        android:text="@string/default_temperature" />
 
     <TextView
         android:id="@+id/textview_temperature"
@@ -96,6 +96,6 @@
         android:layout_alignLeft="@+id/textView1"
         android:layout_below="@+id/textView1"
         android:layout_marginTop="20dp"
-        android:text="温度" />
+        android:text="@string/temperature" />
 
 </RelativeLayout>
