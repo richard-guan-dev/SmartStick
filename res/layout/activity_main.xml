@@ -1,0 +1,101 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context=".MainActivity" >
+
+    <Button
+        android:id="@+id/locate_client"
+        android:layout_width="100dp"
+        android:layout_height="60dp"
+        android:layout_alignLeft="@+id/userlistbutton"
+        android:layout_below="@+id/userlistbutton"
+        android:layout_marginTop="32dp"
+        android:text="精确定位" />
+
+    <Button
+        android:id="@+id/userlistbutton"
+        android:layout_width="100dp"
+        android:layout_height="60dp"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="166dp"
+        android:text="用户列表" />
+
+    <Button
+        android:id="@+id/check_status"
+        android:layout_width="100dp"
+        android:layout_height="60dp"
+        android:layout_alignTop="@+id/userlistbutton"
+        android:layout_marginLeft="32dp"
+        android:layout_toRightOf="@+id/userlistbutton"
+        android:text="检查状态" />
+
+    <Button
+        android:id="@+id/Null"
+        android:layout_width="100dp"
+        android:layout_height="60dp"
+        android:layout_alignLeft="@+id/check_status"
+        android:layout_alignTop="@+id/locate_client"
+        android:text="预留" />
+
+    <TextView
+        android:id="@+id/textView1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/userlistbutton"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="68dp"
+        android:text="电量" />
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/battery"
+        android:layout_alignLeft="@+id/textView1"
+        android:layout_marginBottom="19dp"
+        android:text="当前用户" />
+
+    <TextView
+        android:id="@+id/battery"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/textView1"
+        android:layout_alignBottom="@+id/textView1"
+        android:layout_alignLeft="@+id/check_status"
+        android:layout_marginLeft="19dp"
+        android:text="0%" />
+
+    <TextView
+        android:id="@+id/user_name_main"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/textView3"
+        android:layout_alignBottom="@+id/textView3"
+        android:layout_alignLeft="@+id/battery"
+        android:text="User" />
+
+    <TextView
+        android:id="@+id/temperature"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/textview_temperature"
+        android:layout_alignLeft="@+id/battery"
+        android:text="0" />
+
+    <TextView
+        android:id="@+id/textview_temperature"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/textView1"
+        android:layout_below="@+id/textView1"
+        android:layout_marginTop="20dp"
+        android:text="温度" />
+
+</RelativeLayout>
