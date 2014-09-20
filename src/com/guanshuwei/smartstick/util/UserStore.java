@@ -46,4 +46,46 @@ public class UserStore {
 		
 		return user;
 	}
+	
+	public String getLastBattery(Context context){
+		String battery;
+		SharedPreferences sp = context.getSharedPreferences(Constant.USERS_LIST_SHARED_PREFERENCES, Context.MODE_PRIVATE);
+		battery = sp.getString(Constant.BATTERY, "-");
+		return battery;
+	}
+	
+	public String getLastTemprature(Context context){
+		String temprature;
+		SharedPreferences sp = context.getSharedPreferences(Constant.USERS_LIST_SHARED_PREFERENCES, Context.MODE_PRIVATE);
+		temprature = sp.getString(Constant.TEMPRATURE, "-");
+		return temprature;
+	}
+	
+	public void setBattery(String battery, Context context){
+		SharedPreferences sp = context.getSharedPreferences(Constant.USERS_LIST_SHARED_PREFERENCES, Context.MODE_PRIVATE);
+		Editor editor = sp.edit();
+		
+		try{
+			editor.remove(Constant.BATTERY);
+		} catch(Exception e){
+			e.printStackTrace();
+		}
+		
+		editor.putString(Constant.BATTERY, battery);
+		editor.commit();
+	}
+	
+	public void setTemprature(String temprature, Context context){
+		SharedPreferences sp = context.getSharedPreferences(Constant.USERS_LIST_SHARED_PREFERENCES, Context.MODE_PRIVATE);
+		Editor editor = sp.edit();
+		
+		try{
+			editor.remove(Constant.TEMPRATURE);
+		} catch(Exception e){
+			e.printStackTrace();
+		}
+		
+		editor.putString(Constant.TEMPRATURE, temprature);
+		editor.commit();
+	}
 }

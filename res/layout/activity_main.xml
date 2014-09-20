@@ -8,77 +8,49 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context=".MainActivity" >
 
-    <Button
-        android:id="@+id/locate_client"
-        android:layout_width="100dp"
-        android:layout_height="60dp"
-        android:layout_alignLeft="@+id/userlistbutton"
-        android:layout_below="@+id/userlistbutton"
-        android:layout_marginTop="32dp"
-        android:text="@string/locate_client" />
-
-    <Button
-        android:id="@+id/userlistbutton"
-        android:layout_width="100dp"
-        android:layout_height="60dp"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentTop="true"
-        android:layout_marginLeft="20dp"
-        android:layout_marginTop="166dp"
-        android:text="@string/user_list" />
-
-    <Button
-        android:id="@+id/check_status"
-        android:layout_width="100dp"
-        android:layout_height="60dp"
-        android:layout_alignTop="@+id/userlistbutton"
-        android:layout_marginLeft="32dp"
-        android:layout_toRightOf="@+id/userlistbutton"
-        android:text="@string/check_status" />
-
-    <Button
-        android:id="@+id/Null"
-        android:layout_width="100dp"
-        android:layout_height="60dp"
-        android:layout_alignLeft="@+id/check_status"
-        android:layout_alignTop="@+id/locate_client"
-        android:text="@string/reserved" />
-
     <TextView
-        android:id="@+id/textView1"
+        android:id="@+id/user_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/userlistbutton"
+        android:layout_marginLeft="40dp"
         android:layout_alignParentTop="true"
-        android:layout_marginTop="68dp"
+        android:layout_marginTop="150dp"
+        android:textSize="20sp"
+        android:textStyle="bold"
         android:text="@string/battery" />
 
     <TextView
-        android:id="@+id/textView3"
+        android:id="@+id/history_latitude"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_above="@+id/battery"
-        android:layout_alignLeft="@+id/textView1"
-        android:layout_marginBottom="19dp"
+        android:layout_alignLeft="@+id/user_title"
+        android:layout_marginBottom="20dp"
+        android:textSize="20sp"
+        android:textStyle="bold"
         android:text="@string/current_user" />
 
     <TextView
         android:id="@+id/battery"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignBaseline="@+id/textView1"
-        android:layout_alignBottom="@+id/textView1"
-        android:layout_alignLeft="@+id/check_status"
-        android:layout_marginLeft="19dp"
+        android:layout_alignBaseline="@+id/user_title"
+        android:layout_alignBottom="@+id/user_title"
+        android:layout_alignLeft="@+id/user_title"
+        android:layout_marginLeft="120dp"
+        android:textSize="20sp"
+        android:textStyle="bold"
         android:text="@string/default_battery" />
 
     <TextView
         android:id="@+id/user_name_main"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignBaseline="@+id/textView3"
-        android:layout_alignBottom="@+id/textView3"
+        android:layout_alignBaseline="@+id/history_latitude"
+        android:layout_alignBottom="@+id/history_latitude"
         android:layout_alignLeft="@+id/battery"
+        android:textSize="20sp"
+        android:textStyle="bold"
         android:text="@string/user" />
 
     <TextView
@@ -87,15 +59,55 @@
         android:layout_height="wrap_content"
         android:layout_alignBottom="@+id/textview_temperature"
         android:layout_alignLeft="@+id/battery"
+        android:textSize="20sp"
+        android:textStyle="bold"
         android:text="@string/default_temperature" />
 
     <TextView
         android:id="@+id/textview_temperature"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/textView1"
-        android:layout_below="@+id/textView1"
+        android:layout_alignLeft="@+id/user_title"
+        android:layout_below="@+id/user_title"
         android:layout_marginTop="20dp"
+        android:textSize="20sp"
+        android:textStyle="bold"
         android:text="@string/temperature" />
+
+    <Button
+        android:id="@+id/History"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_alignBaseline="@+id/locate_client"
+        android:layout_alignBottom="@+id/locate_client"
+        android:layout_marginLeft="16dp"
+        android:layout_toRightOf="@+id/locate_client"
+        android:background="@drawable/yuliu_easyicon_net_256" />
+
+    <Button
+        android:id="@+id/locate_client"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_alignBaseline="@+id/check_status"
+        android:layout_alignBottom="@+id/check_status"
+        android:layout_toRightOf="@+id/temperature"
+        android:background="@drawable/dingwei_easyicon_net_256" />
+
+    <Button
+        android:id="@+id/check_status"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_alignBaseline="@+id/userlistbutton"
+        android:layout_alignBottom="@+id/userlistbutton"
+        android:layout_toLeftOf="@+id/temperature"
+        android:background="@drawable/chaxun_easyicon_net_473" />
+
+    <Button
+        android:id="@+id/userlistbutton"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignRight="@+id/textview_temperature"
+        android:background="@drawable/yonghuliebiao_easyicon_net_473" />
 
 </RelativeLayout>

@@ -60,6 +60,7 @@ public class UserDetailActivity extends Activity {
 					saveUser();
 					Toast.makeText(UserDetailActivity.this, "Saved",
 							Toast.LENGTH_LONG).show();
+					finish();
 				}
 			});
 		} else if (operation.equals(Constant.USER_INFO_OPERATION_EDIT)) {

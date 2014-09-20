@@ -15,12 +15,13 @@
 
     <Button
         android:id="@+id/save"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
         android:layout_below="@+id/userphonenumber"
-        android:layout_centerHorizontal="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="100dp"
         android:layout_marginTop="40dp"
-        android:text="@string/save" />
+        android:background="@drawable/queren_easyicon_net_118" />
 
     <EditText
         android:id="@+id/userphonenumber"
@@ -32,7 +33,7 @@
         android:inputType="phone" />
 
     <TextView
-        android:id="@+id/textView1"
+        android:id="@+id/user_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignBottom="@+id/username"
@@ -52,10 +53,11 @@
     <Button
         android:id="@+id/back"
         style="?android:attr/buttonStyleSmall"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentTop="true"
-        android:text="@string/back" />
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_marginRight="60dp"
+        android:layout_toLeftOf="@+id/save"
+        android:layout_alignBottom="@+id/save"
+        android:background="@drawable/back_easyicon_net_512" />
 
 </RelativeLayout>

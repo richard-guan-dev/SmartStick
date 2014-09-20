@@ -5,16 +5,16 @@
 
     <ImageView
         android:id="@+id/imageView1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
         android:layout_alignParentLeft="true"
         android:layout_alignParentTop="true"
         android:layout_marginLeft="5dp"
         android:layout_marginTop="5dp"
-        android:src="@drawable/ic_launcher" />
+        android:src="@drawable/ren_easyicon_net_512" />
 
     <TextView
-        android:id="@+id/user_name"
+        android:id="@+id/history_user_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignTop="@+id/imageView1"
@@ -27,28 +27,30 @@
         android:id="@+id/user_phone"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/user_name"
-        android:layout_below="@+id/user_name"
+        android:layout_alignLeft="@+id/history_user_name"
+        android:layout_below="@+id/history_user_name"
         android:layout_marginTop = "10dp"
         android:text="@string/default_phone_number" />
 
     <Button
         android:id="@+id/delete"
         style="?android:attr/buttonStyleSmall"
-        android:layout_width="75dp"
-        android:layout_height="wrap_content"
-        android:layout_alignBaseline="@+id/edit"
-        android:layout_alignBottom="@+id/edit"
+        android:layout_width="25dp"
+        android:layout_height="25dp"
+        android:layout_marginRight="20dp"
+        android:layout_alignBaseline="@+id/change_active"
+        android:layout_alignBottom="@+id/change_active"
         android:layout_alignParentRight="true"
-        android:text="@string/delete" />
+        android:background="@drawable/delete_easyicon_net_512"/>
 
     <Button
-        android:id="@+id/edit"
+        android:id="@+id/change_active"
         style="?android:attr/buttonStyleSmall"
-        android:layout_width="75dp"
-        android:layout_height="wrap_content"
+        android:layout_width="25dp"
+        android:layout_height="25dp"
+        android:layout_marginRight="20dp"
         android:layout_alignBottom="@+id/user_phone"
         android:layout_toLeftOf="@+id/delete"
-        android:text="@string/unactived" />
+        android:background="@drawable/weibangding_easyicon_net_512" />
 
 </RelativeLayout>

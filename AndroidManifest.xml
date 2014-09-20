@@ -59,13 +59,17 @@
             android:name="com.guanshuwei.smartstick.activity.UserListActivity"
             android:label="@string/app_name" >
         </activity>
+        <activity
+            android:name="com.guanshuwei.smartstick.activity.HistoryListActivity"
+            android:label="@string/app_name" >
+        </activity>
 
         <service
             android:name="com.guanshuwei.smartstick.service.CoreService"
             android:enabled="true" >
-            <intent-filter>
+<!--             <intent-filter>
                 <action android:name="com.guanshuwei.smartstick.service.ACTION_SMS_SERVICE" />
-            </intent-filter>
+            </intent-filter> -->
         </service>
 
         <receiver android:name="com.guanshuwei.smartstick.broadcast.SMSBroadcastReceiver" >

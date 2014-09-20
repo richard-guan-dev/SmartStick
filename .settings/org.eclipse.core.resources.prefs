@@ -1,8 +1,10 @@
 eclipse.preferences.version=1
 encoding//src/com/guanshuwei/smartstick/activity/MainActivity.java=UTF-8
 encoding//src/com/guanshuwei/smartstick/activity/MapActivity.java=UTF-8
+encoding//src/com/guanshuwei/smartstick/adapter/HistoryListAdapter.java=UTF-8
 encoding//src/com/guanshuwei/smartstick/adapter/UserListAdapter.java=UTF-8
 encoding//src/com/guanshuwei/smartstick/broadcast/SMSBroadcastReceiver.java=UTF-8
+encoding//src/com/guanshuwei/smartstick/data/HistoryDatabase.java=UTF-8
 encoding//src/com/guanshuwei/smartstick/service/CoreService.java=UTF-8
 encoding//src/com/guanshuwei/smartstick/util/CommandSender.java=UTF-8
 encoding//src/com/guanshuwei/smartstick/util/UserStore.java=UTF-8

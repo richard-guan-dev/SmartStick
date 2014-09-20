@@ -2,7 +2,10 @@ package com.guanshuwei.smartstick.adapter;
 
 import java.util.Vector;
 
+import android.app.AlertDialog;
 import android.content.Context;
+import android.content.DialogInterface;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -68,9 +71,9 @@ public class UserListAdapter extends BaseAdapter {
 
 		viewHolder.DeleteButton = (Button) convertView
 				.findViewById(R.id.delete);
-		viewHolder.EditButton = (Button) convertView.findViewById(R.id.edit);
+		viewHolder.EditButton = (Button) convertView.findViewById(R.id.change_active);
 		viewHolder.NameTextView = (TextView) convertView
-				.findViewById(R.id.user_name);
+				.findViewById(R.id.history_user_name);
 		viewHolder.PhoneTextVew = (TextView) convertView
 				.findViewById(R.id.user_phone);
 
@@ -79,36 +82,39 @@ public class UserListAdapter extends BaseAdapter {
 		viewHolder.NameTextView.setText(user.getUserName());
 		viewHolder.PhoneTextVew.setText(user.getUserPhoneNumber());
 
-		UserModule currentUser = UserStore.getInstance().getCurrentUser(
+		final UserModule currentUser = UserStore.getInstance().getCurrentUser(
 				mContext);
 
 		if (user.getUserName().equals(currentUser.getUserName())) {
-			viewHolder.EditButton.setText("已激活");
+			viewHolder.EditButton.setText(this.mContext.getResources()
+					.getString(R.string.actived));
 			viewHolder.EditButton.setEnabled(false);
 		} else {
-			viewHolder.EditButton.setText("未激活");
+			viewHolder.EditButton.setText(this.mContext.getResources()
+					.getString(R.string.unactived));
 			viewHolder.EditButton.setEnabled(true);
 		}
 		viewHolder.EditButton.setOnClickListener(new OnClickListener() {
-
+			// BUG
 			@Override
 			public void onClick(View v) {
 				Toast.makeText(mContext,
 						"Current Activie User is " + user.getUserName(),
 						Toast.LENGTH_LONG).show();
+				UserStore.getInstance().saveUser(user, mContext);
+				UserListAdapter.this.notifyDataSetChanged();
 
-				final UserModule currentUser = UserStore.getInstance()
-						.getCurrentUser(mContext);
 				new Thread() {
 
 					@Override
 					public void run() {
 						super.run();
 						try {
+							Log.i("unbind", currentUser.getUserPhoneNumber());
+							Log.i("bind", user.getUserPhoneNumber());
+
 							CommandSender.getInstance().UnBindUser(mContext,
 									currentUser.getUserPhoneNumber());
-							UserStore.getInstance().saveUser(user, mContext);
-							UserListAdapter.this.notifyDataSetChanged();
 							CommandSender.getInstance().BindUser(mContext,
 									user.getUserPhoneNumber());
 						} catch (Exception e) {
@@ -134,12 +140,39 @@ public class UserListAdapter extends BaseAdapter {
 
 			@Override
 			public void onClick(View v) {
-				UserInfoDatabase userInfoDatabase = new UserInfoDatabase(
-						UserListAdapter.this.mContext);
-				UserModule item = UserListAdapter.this.mUserList.get(position);
-				userInfoDatabase.remove(item);
-				UserListAdapter.this.mUserList = userInfoDatabase.getAll();
-				UserListAdapter.this.notifyDataSetChanged();
+				final AlertDialog.Builder builder = new AlertDialog.Builder(
+						mContext);
+				builder.setMessage("是否确定删除用户")
+						.setPositiveButton("删除",
+								new DialogInterface.OnClickListener() {
+
+									@Override
+									public void onClick(DialogInterface dialog,
+											int which) {
+										// TODO Auto-generated method stub
+										UserInfoDatabase userInfoDatabase = new UserInfoDatabase(
+												UserListAdapter.this.mContext);
+										UserModule item = UserListAdapter.this.mUserList
+												.get(position);
+										userInfoDatabase.remove(item);
+										UserListAdapter.this.mUserList = userInfoDatabase
+												.getAll();
+										UserListAdapter.this
+												.notifyDataSetChanged();
+									}
+
+								})
+						.setNegativeButton("取消",
+								new DialogInterface.OnClickListener() {
+
+									@Override
+									public void onClick(DialogInterface dialog,
+											int which) {
+										// TODO Auto-generated method stub
+
+									}
+
+								});
 			}
 		});
 
@@ -153,5 +186,4 @@ public class UserListAdapter extends BaseAdapter {
 	public void setUserList(Vector<UserModule> mUserList) {
 		this.mUserList = mUserList;
 	}
-
 }
