@@ -92,9 +92,11 @@ public class HistoryListAdapter extends BaseAdapter {
 		if (history.getLogType().equals(LogType.ALERT)) {
 			viewHolder.typeTextView.setText("跌倒警报");
 			viewHolder.longitudeTextView.setText(history.getmDate());
+			viewHolder.longitudeTextView.setText("");
+			viewHolder.latitudeTextView.setText("");
 			viewHolder.mapButton.setVisibility(Button.GONE);
 		} else {
-			viewHolder.typeTextView.setText("位置信息");
+			viewHolder.typeTextView.setText("位置");
 			viewHolder.longitudeTextView.setText(String.valueOf(history
 					.getLongitude()));
 			viewHolder.latitudeTextView.setText(String.valueOf(history

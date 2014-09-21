@@ -44,16 +44,6 @@
         android:layout_below="@+id/TextView01"
         android:text="报警" />
 
-    <Button
-        android:id="@+id/history_go_to_map"
-        style="?android:attr/buttonStyleSmall"
-        android:layout_width="60dp"
-        android:layout_height="wrap_content"
-        android:layout_alignParentRight="true"
-        android:layout_below="@+id/history_time"
-        android:layout_marginRight="14dp"
-        android:text="@string/open" />
-
     <TextView
         android:id="@+id/history_longitude"
         android:layout_width="wrap_content"
@@ -67,8 +57,20 @@
         android:id="@+id/history_latitude"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/history_longitude"
-        android:layout_below="@+id/history_longitude"
+        android:layout_alignBaseline="@id/history_longitude"
+        android:layout_alignBottom="@id/history_longitude"
+        android:layout_toRightOf="@id/history_longitude"
+        android:layout_marginLeft = "10dp"
         android:text="0.0" />
+
+    <Button
+        android:id="@+id/history_go_to_map"
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="60dp"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/history_latitude"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="14dp"
+        android:text="@string/open" />
 
 </RelativeLayout>

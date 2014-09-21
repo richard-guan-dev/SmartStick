@@ -28,6 +28,7 @@
     <uses-permission android:name="android.permission.BROADCAST_STICKY" />
     <uses-permission android:name="android.permission.WRITE_SETTINGS" />
     <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.CALL_PHONE" />
 
     <application
         android:allowBackup="true"
@@ -67,9 +68,12 @@
         <service
             android:name="com.guanshuwei.smartstick.service.CoreService"
             android:enabled="true" >
-<!--             <intent-filter>
+
+            <!--
+                 <intent-filter>
                 <action android:name="com.guanshuwei.smartstick.service.ACTION_SMS_SERVICE" />
-            </intent-filter> -->
+            </intent-filter>
+            -->
         </service>
 
         <receiver android:name="com.guanshuwei.smartstick.broadcast.SMSBroadcastReceiver" >

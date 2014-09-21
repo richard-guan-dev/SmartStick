@@ -71,7 +71,8 @@ public class UserListAdapter extends BaseAdapter {
 
 		viewHolder.DeleteButton = (Button) convertView
 				.findViewById(R.id.delete);
-		viewHolder.EditButton = (Button) convertView.findViewById(R.id.change_active);
+		viewHolder.EditButton = (Button) convertView
+				.findViewById(R.id.change_active);
 		viewHolder.NameTextView = (TextView) convertView
 				.findViewById(R.id.history_user_name);
 		viewHolder.PhoneTextVew = (TextView) convertView
@@ -173,6 +174,8 @@ public class UserListAdapter extends BaseAdapter {
 									}
 
 								});
+				AlertDialog ad = builder.create();
+				ad.show();
 			}
 		});
 

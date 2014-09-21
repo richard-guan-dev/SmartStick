@@ -38,6 +38,7 @@ public class MainActivity extends Activity {
 	private TextView mUserName;
 	private TextView mBatteryText;
 	private TextView mTemperatureText;
+	private AlertDialog mDialog = null;
 
 	@Override
 	public boolean onKeyDown(int keyCode, KeyEvent event) {
@@ -69,11 +70,18 @@ public class MainActivity extends Activity {
 		this.mUserName = (TextView) this.findViewById(R.id.user_name_main);
 		this.mTemperatureText = (TextView) this.findViewById(R.id.temperature);
 
-		this.mBatteryText.setTextColor(android.graphics.Color.GRAY);
-		this.mTemperatureText.setTextColor(android.graphics.Color.GRAY);
-		
-		this.mBatteryText.setText(UserStore.getInstance().getLastBattery(this));
-		this.mTemperatureText.setText(UserStore.getInstance().getLastTemprature(this));
+		if (UserStore.getInstance().getLastBattery(this).equals("-")) {
+			this.mBatteryText.setTextColor(android.graphics.Color.GRAY);
+		}
+
+		if (UserStore.getInstance().getLastTemprature(this).equals("-")) {
+			this.mTemperatureText.setTextColor(android.graphics.Color.GRAY);
+		}
+
+		this.mBatteryText.setText(UserStore.getInstance().getLastBattery(this)
+				+ "%");
+		this.mTemperatureText.setText(UserStore.getInstance()
+				.getLastTemprature(this) + "℃");
 
 		this.mHistoryButton.setOnClickListener(new OnClickListener() {
 
@@ -98,7 +106,8 @@ public class MainActivity extends Activity {
 			@Override
 			public void onClick(View v) {
 				CommandSender.getInstance().checkStatus(MainActivity.this);
-				Toast.makeText(MainActivity.this, "状态查询指令已发送", Toast.LENGTH_LONG).show();
+				Toast.makeText(MainActivity.this, "状态查询指令已发送",
+						Toast.LENGTH_LONG).show();
 			}
 		});
 
@@ -107,7 +116,8 @@ public class MainActivity extends Activity {
 			@Override
 			public void onClick(View v) {
 				CommandSender.getInstance().getLocation(MainActivity.this);
-				Toast.makeText(MainActivity.this, "位置查询指令已发送", Toast.LENGTH_LONG).show();
+				Toast.makeText(MainActivity.this, "位置查询指令已发送",
+						Toast.LENGTH_LONG).show();
 			}
 		});
 
@@ -209,6 +219,16 @@ public class MainActivity extends Activity {
 								});
 				AlertDialog ad = builder.create();
 				ad.show();
+				if (mDialog != null) {
+					try {
+						if (mDialog.isShowing()) {
+							mDialog.dismiss();
+						}
+					} catch (Exception e) {
+						e.printStackTrace();
+					}
+				}
+				mDialog = ad;
 
 			} else if (messageKind.equals(Constant.MESSAGE_STATUS)) {
 				mBatteryText.setTextColor(android.graphics.Color.BLACK);
@@ -218,11 +238,13 @@ public class MainActivity extends Activity {
 				mBatteryText.setText(battery + "%");
 				String temperature = intent
 						.getStringExtra(Constant.MESSAGE_STATUS_TEMPERATURE);
-				mTemperatureText.setText(temperature);
-				UserStore.getInstance().setBattery((battery), MainActivity.this);
-				UserStore.getInstance().setTemprature((temperature), MainActivity.this);
+				mTemperatureText.setText(temperature + "℃");
+				UserStore.getInstance()
+						.setBattery((battery), MainActivity.this);
+				UserStore.getInstance().setTemprature((temperature),
+						MainActivity.this);
 				Toast.makeText(MainActivity.this, "电量和温度信息已更新",
-						Toast.LENGTH_LONG);
+						Toast.LENGTH_LONG).show();
 			} else if (messageKind.equals(Constant.MESSAGE_ALERT)) {
 				final AlertDialog.Builder builder = new AlertDialog.Builder(
 						MainActivity.this);
@@ -249,9 +271,40 @@ public class MainActivity extends Activity {
 								});
 				AlertDialog ad = builder.create();
 				ad.show();
+				if (mDialog != null) {
+					try {
+						if (mDialog.isShowing()) {
+							mDialog.dismiss();
+						}
+					} catch (Exception e) {
+						e.printStackTrace();
+					}
+				}
+				mDialog = ad;
 			} else if (messageKind.equals(Constant.MESSAGE_DISABLE_ALERT)) {
-				Toast.makeText(MainActivity.this, "警报已解除！", Toast.LENGTH_LONG)
-						.show();
+				// Toast.makeText(MainActivity.this, "警报已解除！",
+				// Toast.LENGTH_LONG)
+				// .show();
+				final AlertDialog.Builder builder = new AlertDialog.Builder(
+						MainActivity.this);
+				builder.setMessage("警报已解除!").setPositiveButton("我知道了",
+						new DialogInterface.OnClickListener() {
+							public void onClick(DialogInterface dialog,
+									int which) {
+							}
+						});
+				AlertDialog ad = builder.create();
+				ad.show();
+				if (mDialog != null) {
+					try {
+						if (mDialog.isShowing()) {
+							mDialog.dismiss();
+						}
+					} catch (Exception e) {
+						e.printStackTrace();
+					}
+				}
+				mDialog = ad;
 			}
 		}
 	}

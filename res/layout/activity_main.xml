@@ -90,7 +90,8 @@
         android:layout_height="60dp"
         android:layout_alignBaseline="@+id/check_status"
         android:layout_alignBottom="@+id/check_status"
-        android:layout_toRightOf="@+id/temperature"
+        android:layout_toRightOf="@+id/check_status"
+        android:layout_marginLeft="16dp"
         android:background="@drawable/dingwei_easyicon_net_256" />
 
     <Button
@@ -99,7 +100,8 @@
         android:layout_height="60dp"
         android:layout_alignBaseline="@+id/userlistbutton"
         android:layout_alignBottom="@+id/userlistbutton"
-        android:layout_toLeftOf="@+id/temperature"
+        android:layout_toRightOf="@+id/userlistbutton"
+        android:layout_marginLeft="16dp"
         android:background="@drawable/chaxun_easyicon_net_473" />
 
     <Button
